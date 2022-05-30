@@ -1,0 +1,29 @@
+//** Prepared by A. ElSaid for DS CIIC4020/ICOM4035, UPRM **//
+apply plugin: 'java'
+apply plugin: 'application'
+repositories {
+    mavenCentral()
+}
+tasks.withType(JavaCompile) {
+    options.warnings = false
+}
+sourceSets {
+        main.java.srcDirs += 'src/DataStructures'
+    }
+
+dependencies {
+    //testImplementation('org.junit.jupiter:junit-jupiter:5.6.0')
+    testImplementation('junit:junit:4.12')
+    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.7.1')
+}
+
+mainClassName = 'prj02.HuffmanCoding'
+test {
+	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
+compileJava {
+  options.encoding = "UTF-8"
+}
